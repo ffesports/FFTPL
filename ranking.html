@@ -119,7 +119,7 @@ video {
 	 #table {
 	 
     border-collapse: separate;
-    border-spacing: 20mm 5.03mm;
+    border-spacing: 17mm 5.03mm;
   } 
 	 body {
     background-image: url("./01.png");
@@ -134,7 +134,7 @@ video {
  
 
 	
-	<div class="Excel" style="padding-top: 1px;padding-left: 19px;">
+	<div class="Excel" style="padding-top: 1px;padding-left: 25px;">
   <table id="table"></table>
 	 
  </div>	
@@ -142,7 +142,7 @@ video {
     $(document).ready(function() {
       $.ajax({
         type: "GET",
-        url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vS628O_-hLWgRBnpuuOynpO4LlHQNc5a-QrisYKmy8lU3j5g87MKKCmGEk9JvTY7-UO45xEMG2WUcWM/pub?gid=0&single=true&output=csv",
+        url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vS628O_-hLWgRBnpuuOynpO4LlHQNc5a-QrisYKmy8lU3j5g87MKKCmGEk9JvTY7-UO45xEMG2WUcWM/pub?gid=1303938701&single=true&output=csv",
         dataType: "text",
         success: function(data) {
           // 解析CSV数据
