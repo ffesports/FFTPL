@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html><head>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<meta charset="utf-8">
-    <meta property="og:title" content="OBS即時積分榜">
-	<link rel="icon" href="favicon.ico" type="image/x-icon">
-    <title>OBS即時積分榜</title>
+    <meta property="og:title" content="FFTPL即時積分榜">
+<!--	-->
+    
+    <meta property="og:image" content="PNG/mini.png">
+    <meta property="og:type" content="website">
+ <link rel="icon" href="PNG/mark.ico" type="image/x-icon">
+    <title>OBS即時積分榜</title> 
     
     <link rel="stylesheet" href="./font.css"><style>
     @import url("webfonts/GenSenRoundedTW_B_01/stylesheet.css");
@@ -105,7 +108,7 @@ video {
 
 .Excel {
     color: #FFFFFF;
-    font-size: 21px;
+    font-size: 17px;
     display: flex;
     height: auto;
     width: auto;
@@ -114,17 +117,63 @@ video {
     
     text-transform: uppercase;
 }
-	    
-		
-	 #table {
-	 
-    border-collapse: separate;
-    border-spacing: 17mm 5.03mm;
-  } 
+	
+
+	
+/* 調整圖片列的間距 */
+#table td:nth-child(1) {
+	padding-top: 0px; /* 上面間距 */
+	padding-bottom: 3.4px; /* 下面間距 */
+	padding-left: 0px; /* 左邊間距 */
+    padding-right: 0px; /* 右邊間距 */
+	height: 30px; /* 調整高度值 */
+    vertical-align: top; /* 將內容置頂 */
+	position: relative; /* 啟用定位 */
+    top: 5px; /* 向上偏移指定像素 */
+   
+}
+
+/* 調整文字列的間距 */
+#table td:nth-child(2),
+#table td:nth-child(3),
+#table td:nth-child(4),
+#table td:nth-child(5) {
+    padding-left: 20px; /* 左邊間距 */
+    padding-right: 20px; /* 右邊間距 */
+    padding-top: 5px; /* 上面間距 */
+    padding-bottom: 0px; /* 下面間距 */
+	
+	
+}
+	
+#table td:nth-child(3),
+#table td:nth-child(4),
+#table td:nth-child(5) {
+    text-align: center;
+}	
+	
+/* 調整文字列的間距 */
+#table td:nth-child(2) {
+    padding-left: 0px; /* 左邊間距 */
+    padding-right: 0px; /* 右邊間距 */
+    padding-top: 0px; /* 上面間距 */
+    padding-bottom: 0px; /* 下面間距 */
+}	
+	
+#table td:nth-child(3) {
+    padding-left: 9px; /* 左邊間距 */
+    
+}
+	
+	#table img {
+    max-width: auto; /* 調整圖片最大寬度 */
+    max-height: 23px; /* 調整圖片最大高度 */
+}
+	
 	 body {
-    background-image: url("./01.png");
+    background-image: url("01.png");
     background-repeat: no-repeat;
-    background-size: 100% auto;
+    background-size: 80.5% auto;
     }	
 		
     </style>
@@ -134,35 +183,63 @@ video {
  
 
 	
-	<div class="Excel" style="padding-top: 1px;padding-left: 25px;">
-  <table id="table"></table>
+	<div class="Excel" style="padding-top: 7px;padding-left: 70px;">
+  <table id="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th></th>
+                <!-- 添加更多表頭列 -->
+            </tr>
+        </thead>
+        <tbody>
+            <!-- 這裡的數據將動態生成 -->
+        </tbody>
+    </table>
 	 
  </div>	
-   <script>
-    $(document).ready(function() {
-      $.ajax({
-        type: "GET",
-        url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vS628O_-hLWgRBnpuuOynpO4LlHQNc5a-QrisYKmy8lU3j5g87MKKCmGEk9JvTY7-UO45xEMG2WUcWM/pub?gid=1303938701&single=true&output=csv",
-        dataType: "text",
-        success: function(data) {
-          // 解析CSV数据
-          var rows = data.split('\n');
-          var table = document.getElementById("table");
+ 
+	
+	
+	 <script>
+        const apiKey = 'AIzaSyCl9W91nSkiokY-GXPTuZdi44qb_B39D24';
+        const spreadsheetId = '1pNvPpGjk-M10ZP1Loq3bw2grDj6eXEwir1pnjqtTZGY';
+        const sheetName = 'to sort';
+        const dataTable = document.getElementById('table');
 
-          // 遍历每一行数据
-          for (var i = 0; i < rows.length; i++) {
-            var cells = rows[i].split(',');
-            var row = table.insertRow();
+        function fetchData() {
+            const apiUrl = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}?key=${apiKey}`;
 
-            // 遍历每个单元格数据
-            for (var j = 0; j < cells.length; j++) {
-              var cell = row.insertCell();
-              cell.textContent = cells[j];
-            }
-          }
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    const values = data.values;
+
+                    dataTable.querySelector('tbody').innerHTML = '';
+
+                    values.forEach(row => {
+                        const rowElement = document.createElement('tr');
+                        row.forEach((cellData, index) => {
+                            const cellElement = document.createElement('td');
+                            if (index === 0) { // 假設第 1 列是圖片網址的列
+                                const imgElement = document.createElement('img');
+                                imgElement.src = cellData;
+                                cellElement.appendChild(imgElement);
+                            } else {
+                                cellElement.textContent = cellData;
+                            }
+                            rowElement.appendChild(cellElement);
+                        });
+                        dataTable.querySelector('tbody').appendChild(rowElement);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
         }
-      });
-    });
-  </script>
+
+        fetchData();
+        setInterval(fetchData, 60000);
+    </script>
 </body>
 </html>
