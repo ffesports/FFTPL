@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html><head>
+	<meta charset="utf-8">
+    <meta property="og:title" content="FFTPL決賽即時積分榜">
+<!--	-->
+    
+    <meta property="og:image" content="PNG/mini.png">
+    <meta property="og:type" content="website">
+ <link rel="icon" href="PNG/mark.ico" type="image/x-icon">
+    <title>OBS決賽即時積分榜</title> 
+    
+    <link rel="stylesheet" href="./font.css"><style>
+    @import url("webfonts/GenSenRoundedTW_B_01/stylesheet.css");
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    vertical-align: baseline;
+    font-family: 'GFF Latin';
+	font-weight: 600;
+}
+  
+	  	
+	  
+        
+
+.Excel {
+    color: #FFFFFF;
+    font-size: 20px;
+    display: flex;
+    height: auto;
+    width: auto;
+/*    justify-content: center;*/
+/*    align-items: center;*/
+    
+    text-transform: uppercase;
+}
+	
+
+	
+/* 調整圖片列的間距 */
+#table td:nth-child(1) {
+	padding-top: 0px; /* 上面間距 */
+	padding-bottom: 15.2px; /* 下面間距 */
+	padding-left: 0px; /* 左邊間距 */
+    padding-right: 0px; /* 右邊間距 */
+	height: 30px; /* 調整高度值 */
+    vertical-align: top; /* 將內容置頂 */
+	position: relative; /* 啟用定位 */
+    top: 5px; /* 向上偏移指定像素 */
+   
+}
+
+/* 調整文字列的間距 */
+#table td:nth-child(2),
+#table td:nth-child(3),
+#table td:nth-child(4),
+#table td:nth-child(5) {
+    padding-left: 20px; /* 左邊間距 */
+    padding-right: 20px; /* 右邊間距 */
+    padding-top: 7.9px; /* 上面間距 */
+    padding-bottom: 0px; /* 下面間距 */
+	
+	
+}
+	
+#table td:nth-child(3),
+#table td:nth-child(4),
+#table td:nth-child(5) {
+    text-align: center;
+}	
+	
+/* 調整文字列的間距 */
+#table td:nth-child(2) {
+    padding-left: 0px; /* 左邊間距 */
+    padding-right: 0px; /* 右邊間距 */
+    padding-top: 0px; /* 上面間距 */
+    padding-bottom: 0px; /* 下面間距 */
+}	
+	
+#table td:nth-child(3) {
+    padding-left: 16px; /* 左邊間距 */
+    
+}
+	
+	#table img {
+    max-width: auto; /* 調整圖片最大寬度 */
+    max-height: 30px; /* 調整圖片最大高度 */
+}
+	
+	 body {
+    background-image: url("PNG/02.png");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    }	
+		
+    </style>
+</head>
+<body>
+	
+ 
+
+	
+	<div class="Excel" style="padding-top: 97px;padding-left: 90px;">
+  <table id="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th></th>
+                <!-- 添加更多表頭列 -->
+            </tr>
+        </thead>
+        <tbody>
+            <!-- 這裡的數據將動態生成 -->
+        </tbody>
+    </table>
+	 
+ </div>	
+ 
+	
+	
+	 <script>
+        const apiKey = 'AIzaSyCl9W91nSkiokY-GXPTuZdi44qb_B39D24';
+        const spreadsheetId = '1pNvPpGjk-M10ZP1Loq3bw2grDj6eXEwir1pnjqtTZGY';
+        const sheetName = 'to sort3';
+        const dataTable = document.getElementById('table');
+
+        function fetchData() {
+            const apiUrl = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}?key=${apiKey}`;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    const values = data.values;
+
+                    dataTable.querySelector('tbody').innerHTML = '';
+
+                    values.forEach(row => {
+                        const rowElement = document.createElement('tr');
+                        row.forEach((cellData, index) => {
+                            const cellElement = document.createElement('td');
+                            if (index === 0) { // 假設第 1 列是圖片網址的列
+                                const imgElement = document.createElement('img');
+                                imgElement.src = cellData;
+                                cellElement.appendChild(imgElement);
+                            } else {
+                                cellElement.textContent = cellData;
+                            }
+                            rowElement.appendChild(cellElement);
+                        });
+                        dataTable.querySelector('tbody').appendChild(rowElement);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+        }
+
+        fetchData();
+        setInterval(fetchData, 60000);
+    </script>
+</body>
+</html>
