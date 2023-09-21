@@ -1,0 +1,380 @@
+@charset "utf-8";
+/* CSS Document */
+
+button#gasbt {
+    position: relative;
+    display: block;
+    top: 0px;
+    margin: 3vw auto;
+    width: 10vw;
+    height: 3vw;
+    background: url(../images/gas_bt.jpg) no-repeat;
+    border: 1px solid #ffe000;
+    background-size: 100%;
+    border-radius: 33px;
+    box-shadow: 0px 0px 35px #ffe000;
+    cursor: pointer;
+    -webkit-box-shadow: 0px 0px 25px 4px rgba(255,184,5,1);
+    -moz-box-shadow: 0px 0px 25px 4px rgba(255,184,5,1);
+    box-shadow: 0px 0px 25px 4px rgba(255,184,5,1);
+    -webkit-animation: jumper02 1.8s 0.66666s ease-out infinite;
+    -moz-animation: jumper02 1.8s 0.66666s ease-out infinite;
+    -o-animation: jumper02 1.8s 0.66666s ease-out infinite;
+    animation: jumper02 1.8s 0.66666s ease-out infinite;
+}
+button#gasbt:hover {
+    top: 5px;
+    box-shadow: 0px 0px 35px #ffe000;
+    -webkit-box-shadow: 0px 0px 25px 4px rgba(255,184,5,1);
+    -moz-box-shadow: 0px 0px 25px 4px rgba(255,184,5,1);
+    box-shadow: 0px 0px 25px 4px rgba(255,184,5,1);
+    -webkit-animation: 0s 0s ease-out infinite;
+    -moz-animation: 0s 0.66666s ease-out infinite;
+    -o-animation: 0s 0s ease-out infinite;
+    animation: 0s 0s ease-out infinite;
+}
+#bar {
+    height: 2vw;
+    width: 95%;
+    /* min-width: 355px; */
+    position: relative;
+    margin: 13% auto;
+}
+#bar span:nth-child(1) {
+    z-index: 3;
+    border: 0vw solid #ffc931;
+    border-right: 0;
+    -webkit-border-radius: 20vw;
+    -moz-border-radius: 20vw;
+    border-radius: 20vw;
+    height: 1.5vw;
+    position: absolute;
+    left: 0;
+    float: left;
+    display: block;
+}
+#bar span:nth-child(1) {
+    background: url(../images/bar_bg.jpg);
+    background-position: left;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 50%;
+    margin-top: 0.1vw;
+    margin-left: 0.1vw;
+    box-shadow: 1px 1px 5px 5px rgb(255, 185, 36) inset;
+}
+#bar span:nth-child(2) {
+    position: relative;
+    height: 1.5vw;
+    text-align: center;
+    min-width: 11.5vw;
+    color: #FFF;
+    display: block;
+    background-color: #2a1501;
+    -webkit-box-shadow: inset 0px 0px 115px 3px rgba(113,96,46,1);
+    -moz-box-shadow: inset 0px 0px 115px 3px rgba(113,96,46,1);
+    box-shadow: inset 0px 0px 115px 3px rgba(113,96,46,1);
+    -webkit-border-top-right-radius: 20vw;
+    -webkit-border-bottom-right-radius: 20vw;
+    -moz-border-radius-topright: 20vw;
+    -moz-border-radius-bottomright: 20vw;
+    border-radius: 20vw;
+    border: 0.1vw solid #a17107;
+    margin-top: 1.7vw;
+    right: 0;
+    -webkit-box-shadow: 0px 0px 25px 4px rgba(255,184,5,1);
+    -moz-box-shadow: 0px 0px 25px 4px rgba(255,184,5,1);
+    box-shadow: 0px 0px 25px 4px rgba(255,184,5,1);
+    -webkit-animation: jumper02 1.8s 0.66666s ease-out infinite;
+    -moz-animation: jumper02 1.8s 0.66666s ease-out infinite;
+    -o-animation: jumper02 1.8s 0.66666s ease-out infinite;
+    animation: jumper02 1.8s 0.66666s ease-out infinite;
+}
+#bar span:nth-child(1) b {
+    position: absolute;
+    right: 0%;
+    /* top: 47%; */
+    transform: translate(-50%, 0%);
+    z-index: 3;
+    line-height: 1.5vw;
+    color: #2a1501;
+}
+#barcon {
+	display: flex;
+    position: relative;
+    padding: 5% 0%;
+    background: rgb(46, 23, 1);
+    background: linear-gradient(0deg, rgb(54, 26, 0) 1%, rgb(42, 21, 1) 100%);
+    background: linear-gradient(0deg, rgb(54, 26, 0) 1%, rgb(42, 21, 1) 100%);
+    background: linear-gradient(0deg, rgb(54, 26, 0) 1%, rgb(42, 21, 1) 100%);
+}
+#barL {
+    position: relative;
+    width: 80%;
+    display: inline-block;
+}
+#barR {
+    float: right;
+    position: relative;
+    width: 25%;
+    display: inline-block;
+}
+#gift1 {
+    position: relative;
+    width: 30%;
+    margin-left: 37%;
+    float: left;
+}
+#gift2 {
+    position: relative;
+    width: 30%;
+    float: right;
+	margin-right: -7%;
+}
+div#gift3 {
+    position: relative;
+    width: 30%;
+    float: right;
+    margin-right: -11%;
+}
+y5 {
+    color: #fdd071;
+    font-size: 19px;
+    width: 100%;
+    display: block;
+}
+y5:before {
+    content: "集氣數: ";
+    font-size: 17px;
+}
+#gift1number {
+    width: 70%;
+    position: absolute;
+    text-align: center;
+}
+#gift1number:after {
+    content: "個集氣數";
+}
+#gift2number {
+    width: auto;
+    position: absolute;
+    text-align: center;
+    margin-top: 41%;
+    background: #1e0f00;
+    background: #0c0500;
+    border-radius: 50px;
+    padding: 0% 15%;
+    border: 2px solid #5f2e00;
+}
+#award1, #award2 {
+    width: 70%;
+    position: absolute;
+    margin-top: 63%;
+    text-align: center;
+    line-height: 21px;
+    color: #f8bc45;
+    font-size: 16px;
+    text-align: center;
+}
+#award1:after {
+    content: "營火棒補給卡 (3天)";
+}
+#award2:after {
+    content: "全服開放金幣/經驗值/碎片掉落，加成一天";
+}
+.numberarrow {
+    position: absolute;
+    margin: 33% auto;
+    width: 70%;
+    text-align: center;
+}
+#gastitle {
+    width: 18%;
+    position: absolute;
+    margin-left: 2%;
+    display: block;
+}
+
+@media only screen and (max-width: 850px) {
+button#gasbt {
+    margin: 6vw auto;
+    width: 19vw;
+    height: 6vw;
+}
+#bar {
+    margin: 13% auto 18% auto;
+}
+#bar, #bar span:nth-child(2), #bar span:nth-child(1) {
+    height: 2.5vw;
+}
+#bar span:nth-child(1) b {
+    line-height: 2.5vw;
+}
+.numberarrow {
+    margin: 41% auto;
+}
+#barL {
+    width: 75%;
+}
+#gastitle {
+    width: 23%;
+    margin-top: -1%;
+}
+#gift1 ,#gift2{
+	margin-top: -3%;
+}
+#gift2number {
+    margin-top: 36%;
+}
+y5 {
+    font-size: 15px;
+}
+y5:before {
+    content: "集氣數: ";
+    font-size: 14px;
+}
+}
+
+@media (max-width: 575px) {
+button#gasbt {
+    margin: 11vw auto;
+    width: 35vw;
+    height: 10vw;
+}
+#bar {
+    margin: 29% auto 48% auto;
+}
+#gift1 {
+    width: 40%;
+    margin-left: 6%;
+}
+#gift2 {
+    width: 40%;
+    margin-right: 21%;
+}
+#gift3 {
+    position: relative;
+    width: 40%;
+    float: right;
+    margin-right: -11%;
+}
+y5 {
+    font-size: 20px;
+}
+#gastitle {
+    display: none;
+}
+.numberarrow {
+    margin: 40% auto 0 auto;
+}
+#bar, #bar span:nth-child(2), #bar span:nth-child(1) {
+    height: 4.5vw;
+}
+#bar span:nth-child(1) b {
+    line-height: 4.5vw;
+}
+#award1, #award2 {
+    margin-top: 80%;
+    line-height: 16px;
+    font-size: 13px;
+}
+}
+/*tmember*/
+
+#top_logo {
+    width: 33%;
+    margin: -3% auto;
+}
+ul#tmember {
+    list-style: none;
+    width: 100%;
+    display: table;
+    text-align: center;
+    font-size: 14px;
+    line-height: 20px;
+    color: #ded0c4;
+}
+ul#tmember li {
+    position: relative;
+    display: inline-block;
+    width: calc(87% / 3);
+    height: 31vh;
+    padding: 1%;
+    margin: 1% 1% 0% 1%;
+    border: 1px solid #8c6913;
+}
+
+@media (max-width: 850px) {
+ul#tmember {
+    padding: 0px;
+}
+ul#tmember li {
+    width: calc(87% / 2);
+}
+}
+@media (max-width: 575px) {
+	ul#tmember li {
+    width: 87%;
+    height: 35vh;
+}
+#barcon {
+    display: block;
+	padding: 3% 0% 21% 0%;
+}
+#barL {
+    width: 100%;
+}
+#barR {
+    float: none;
+    width: 100%;
+    margin: auto;
+    display: block;
+}
+#gift2number {
+    margin: 11% auto;
+    width: 68%;
+}
+#gift1{
+    margin-top: 6%;
+	margin-left: 32%;
+	}
+#gift2 {
+    width: 40%;
+    margin-right: -8%;
+    margin-top: 6%;
+    margin-top: 0%;
+}
+}
+.tmemberall {
+    position: absolute;
+    bottom: 8%;
+    margin: 0 3%;
+}
+.tmember_name {
+    font-size: 20px;
+    line-height: 29px;
+    color: #fdd676;
+}
+.tmember_con {
+    text-align: justify;
+}
+ul#tmember li:nth-child(1) {
+    background: url(../images/team_member01.jpg) no-repeat;
+    background-size: 100%;
+}
+ul#tmember li:nth-child(2) {
+    background: url(../images/team_member02.jpg) no-repeat;
+    background-size: 100%;
+}
+ul#tmember li:nth-child(3) {
+    background: url(../images/team_member03.jpg) no-repeat;
+    background-size: 100%;
+}
+ul#tmember li:nth-child(4) {
+    background: url(../images/team_member04.jpg) no-repeat;
+    background-size: 100%;
+}
+ul#tmember li:nth-child(5) {
+    background: url(../images/team_member05.jpg) no-repeat;
+    background-size: 100%;
+}
