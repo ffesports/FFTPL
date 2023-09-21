@@ -71,7 +71,7 @@
  table tr td {
     background: #2d2a2a;
     color: #cbc9cc;
-    font-size: 6px;
+    font-size: 14px;
     border: 1px solid #4e4848;
  }
  table tr:nth-of-type(2n+2) td {
