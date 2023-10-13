@@ -117,7 +117,7 @@
                 <p3>小組賽DAY1積分表</p3>
             <div class="table_con2" style="height: 510px;">
                 <table id="DAY1"><tr>
-				<td colspan="21">第一屆頂尖巔峰聯賽小組賽DAY1積分表（2023/08/25）</td>
+				<td colspan="21">第二屆頂尖巔峰聯賽小組賽DAY1積分表（2023/10/13）</td>
 				</tr>
 				<tr>
 　              
@@ -157,7 +157,7 @@
                 <p3>小組賽DAY2積分表</p3>
             <div class="table_con2" style="height: 510px;">
                 <table id="DAY2"><tr>
-				<td colspan="21">第一屆頂尖巔峰聯賽小組賽DAY2積分表（2023/08/26）</td>
+				<td colspan="21">第二屆頂尖巔峰聯賽小組賽DAY2積分表（2023/10/14）</td>
 				</tr>
 				<tr>
 　              
@@ -197,7 +197,7 @@
 				<p3>小組賽DAY3積分表</p3>
             <div class="table_con2" style="height: 510px;">
                 <table id="DAY3"><tr>
-				<td colspan="21">第一屆頂尖巔峰聯賽小組賽DAY3積分表（2023/08/27）</td>
+				<td colspan="21">第二屆頂尖巔峰聯賽小組賽DAY3積分表（2023/10/15）</td>
 				</tr>
 				<tr>
 　              
@@ -237,7 +237,7 @@
 				<p3>小組賽DAY4積分表</p3>
             <div class="table_con2" style="height: 510px;">
                 <table id="DAY4"><tr>
-				<td colspan="21">第一屆頂尖巔峰聯賽小組賽DAY4積分表（2023/09/01）</td>
+				<td colspan="21">第二屆頂尖巔峰聯賽小組賽DAY4積分表（2023/10/20）</td>
 				</tr>
 				<tr>
 　              
@@ -277,7 +277,7 @@
 				<p3>小組賽DAY5積分表</p3>
             <div class="table_con2" style="height: 510px;">
                 <table id="DAY5"><tr>
-				<td colspan="21">第一屆頂尖巔峰聯賽小組賽DAY5積分表（2023/09/02）</td>
+				<td colspan="21">第二屆頂尖巔峰聯賽小組賽DAY5積分表（2023/10/21）</td>
 				</tr>
 				<tr>
 　              
@@ -317,7 +317,7 @@
 				<p3>小組賽DAY6積分表</p3>
             <div class="table_con2" style="height: 510px;">
                 <table id="DAY6"><tr>
-				<td colspan="21">第一屆頂尖巔峰聯賽小組賽DAY6積分表（2023/09/03）</td>
+				<td colspan="21">第二屆頂尖巔峰聯賽小組賽DAY6積分表（2023/10/22）</td>
 				</tr>
 				<tr>
 　              
@@ -357,7 +357,7 @@
 				<p3>總決賽DAY1積分表</p3>
             <div class="table_con2" style="height: 510px;">
                 <table id="DAY7"><tr>
-				<td colspan="21">第一屆頂尖巔峰聯賽總決賽DAY1積分表（2023/09/09）</td>
+				<td colspan="21">第二屆頂尖巔峰聯賽總決賽DAY1積分表（2023/10/28）</td>
 				</tr>
 				<tr>
 　              
@@ -397,7 +397,7 @@
 				<p3>總決賽DAY2積分表</p3>
             <div class="table_con2" style="height: 510px;">
                 <table id="DAY8"><tr>
-				<td colspan="21">第一屆頂尖巔峰聯賽總決賽DAY2積分表（2023/09/10）</td>
+				<td colspan="21">第二屆頂尖巔峰聯賽總決賽DAY2積分表（2023/10/29）</td>
 				</tr>
 				<tr>
 　              
@@ -439,8 +439,32 @@
 			
 		
 		
+<!--
+				 <div class="warnbox" style="
+    padding-left: 4px;
+    padding-right: 4px;
+">
+			
+			 
+			 
+			 
+			<div class="stitle"><img src="PNG/S2.png"></div>
+            <div class="table_con1" style="height: 485px;">
+                <table id="table">
+					<td colspan="10">第2屆 FFTPL總成績</td>
+            <table id="S2"></table>
+              </table>
+          </div>
+			 
+			 
+			 
+			 
+			 
+        </div>
+-->
+
 		
-		 <div class="warnbox" style="
+		<div class="warnbox" style="
     padding-left: 4px;
     padding-right: 4px;
 ">
@@ -726,6 +750,36 @@
       });
     });
   </script>
+	
+<!--
+S2
+ <script>
+    $(document).ready(function() {
+      $.ajax({
+        type: "GET",
+        url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vS628O_-hLWgRBnpuuOynpO4LlHQNc5a-QrisYKmy8lU3j5g87MKKCmGEk9JvTY7-UO45xEMG2WUcWM/pub?gid=251130159&single=true&output=csv",
+        dataType: "text",
+        success: function(data) {
+          // 解析CSV数据
+          var rows = data.split('\n');
+          var table = document.getElementById("S1");
+
+          // 遍历每一行数据
+          for (var i = 0; i < rows.length; i++) {
+            var cells = rows[i].split(',');
+            var row = table.insertRow();
+
+            // 遍历每个单元格数据
+            for (var j = 0; j < cells.length; j++) {
+              var cell = row.insertCell();
+              cell.textContent = cells[j];
+            }
+          }
+        }
+      });
+    });
+  </script>
+-->
 
 </div>
 	
